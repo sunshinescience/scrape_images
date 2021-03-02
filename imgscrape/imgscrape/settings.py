@@ -12,7 +12,6 @@ BOT_NAME = 'imgscrape'
 SPIDER_MODULES = ['imgscrape.spiders']
 NEWSPIDER_MODULE = 'imgscrape.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'imgscrape (+http://www.yourdomain.com)'
 
@@ -64,7 +63,16 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
 #    'imgscrape.pipelines.ImgscrapePipeline': 300,
+#    'scrapy.pipelines.images.ImagesPipeline': 1
 #}
+
+ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 1
+}
+
+# ******** Adding in item_pipelines to enable the media pipeline *********
+# ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -86,3 +94,5 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+IMAGES_STORE = '/Users/sa4312/git/scrape_images/imgscrape/imgscrape/images'
